@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace @project_abstract
+{
+    public abstract class Account
+    {
+        public abstract int balance();
+        public abstract string account_details();
+        public virtual string transcation()
+        {
+            return " transcation limit upto $50000 only per day";
+        }
+
+        public class saving_account : Account
+        {
+            public override int balance()
+            {
+                return 500;
+            }
+            public override string account_details()
+            {
+                return "A";
+            }
+
+        }
+        public class current_account : Account
+        {
+            public override int balance()
+            {
+                return 400;
+            }
+            public override string account_details()
+            {
+                return "A";
+            }
+
+        }
+
+        public interface Isavings
+        {
+            int balance();
+            
+        }
+        public interface Icurrent
+        {
+            int balance();
+            
+        }
+        public class manger : Isavings, Icurrent
+        {
+            public int balance()
+            {
+                return 1000;
+            }
+            public string account_details()
+            {
+                return "Ashok";
+            }
+        }
+        public class account_holder : Isavings, Icurrent
+        {
+            public int balance()
+            {
+                return 200;
+            }
+            public string account_details()
+            {
+                return "Veera";
+            }
+
+        }
+
+        static void Main(string[] args)
+        {
+            saving_account obj = new saving_account();
+            int a=obj.balance();
+            Console.WriteLine(a);
+            string b = obj.account_details();
+            Console.WriteLine(b);
+            Console.WriteLine(obj.transcation());
+        
+            current_account obj1 = new current_account();
+            int c =obj1.balance();
+            Console.WriteLine(c);
+            string d =obj1.account_details();
+            Console.WriteLine(d);
+            Console.WriteLine(obj1.transcation());
+
+            manger obj2 = new manger();
+            Console.WriteLine(obj2.balance());
+            Console.WriteLine(obj2.account_details());
+            Console.WriteLine("A");
+            account_holder obj3 = new account_holder();
+            Console.WriteLine(obj3.balance());
+            Console.WriteLine(obj3.account_details());
+        }
+    }
+   
+}
