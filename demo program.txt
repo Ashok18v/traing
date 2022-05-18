@@ -1,0 +1,104 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace demo
+{
+    internal class animal
+    {public void dog() {
+            Console.WriteLine("Barks");
+        }
+        public void cat()
+        {
+            Console.WriteLine("meow");
+        }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace demo
+{
+    internal class sum
+    {
+        int a = 10;
+        int b = 20;
+        public void add()
+        {
+            Console.WriteLine(a+b);
+        }
+
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace demo
+{
+    internal class parameters
+    {
+        public void mul(int a, int b)
+        {
+            Console.WriteLine(a*b);
+
+        }
+        public void names(string a, string b)
+        {
+         Console.WriteLine("myself "+ a+". i am studing "+ b);
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace demo
+{
+    internal abstract class empolyee
+    {
+        public abstract string department();
+        public abstract string vechicle();
+        public abstract string ();
+     
+    }
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace demo
+{
+    internal class Program
+    { string a= "ASHOK";
+            public void name()
+        {
+            Console.WriteLine(a);
+        }
+        static void Main(string[] args)
+        { parameters obj3 = new parameters();
+            obj3.mul(2, 4);
+            obj3.names("veera","BTECH");
+
+            animal obj1 = new animal();
+            obj1.dog();
+            obj1.cat();
+           Program obj = new Program();
+            obj.name();
+            sum obj2 = new sum();
+            obj2.add();
+         
+        }
+    }
+}
