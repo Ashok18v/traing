@@ -1,0 +1,119 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+namespace flies
+{
+    public class user_details
+    {
+       public void writefile()
+        {
+            FileStream fs= new FileStream(@"C:\visual\user.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter obj = new StreamWriter(fs);
+            Console.WriteLine("enter the user id");
+            int a= Convert.ToInt32(Console.ReadLine());
+           
+            obj.WriteLine("userid:" +a);
+            Console.WriteLine("enter the first name");
+            obj.WriteLine("first name:"+Console.ReadLine());
+            Console.WriteLine("enter the last name");
+            obj.WriteLine("Last name:"+Console.ReadLine());
+            Console.WriteLine("enter the email id");
+            obj.WriteLine("Email id:"+Console.ReadLine());
+            Console.WriteLine("enter the phone number");
+            long b= Convert.ToInt64(Console.ReadLine());
+            obj.WriteLine("phone no:"+b);
+            obj.Close();
+            fs.Close();
+        }
+
+         internal class Category
+
+    {
+        public void writefiles()
+        {
+            FileStream fileStream=new FileStream(@"C:\visual\category.txt", FileMode.Create,FileAccess.Write);
+            StreamWriter writer=new StreamWriter(fileStream);
+            Console.WriteLine("enter the category id");
+            int c=Convert.ToInt32(Console.ReadLine());
+            writer.WriteLine("category id:" + c);
+            Console.WriteLine("enter the category type");
+            writer.WriteLine("category type:"+Console.ReadLine());
+            writer.Close(); 
+            fileStream.Close();
+        }
+    }
+}
+         internal class product
+    {
+        public void details()
+        {
+            FileStream fileStream = new FileStream(@"C:\visual\product.txt", FileMode.Create,FileAccess.Write);
+            StreamWriter stream = new StreamWriter(fileStream);
+            Console.WriteLine("enter the product id");
+            int d = Convert.ToInt32(Console.ReadLine());
+            stream.WriteLine("Product id:" + d);
+            Console.WriteLine("enter the category type");
+            stream.WriteLine("category type:"+Console.ReadLine());
+            Console.WriteLine("enter the product name");
+            stream.WriteLine("Product name:" + Console.ReadLine());
+            Console.WriteLine("enter the quantity");
+            int e= Convert.ToInt32(Console.ReadLine());
+            stream.WriteLine("quantity:" + e+"kg");
+            Console.WriteLine("enter the price");
+            int f= Convert.ToInt32(Console.ReadLine());
+            stream.WriteLine("Price:" + f);
+            stream.Close();
+            fileStream.Close();
+      
+        }
+    }
+}
+           internal class sales_details
+
+    {
+        public void sales()
+        {
+            FileStream fs = new FileStream(@"C:\visual\purchase.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter streamWriter = new StreamWriter(fs);
+            Console.WriteLine("Enter sale id");
+            int ab =Convert.ToInt32(Console.ReadLine());
+            streamWriter.WriteLine("Sale id:" + ab);
+            Console.WriteLine("enter product id");
+            int bc = Convert.ToInt32(Console.ReadLine());
+            streamWriter.WriteLine("Product id:"+bc);
+            Console.WriteLine("enter the price");
+            int abc=Convert.ToInt32(Console.ReadLine());
+            streamWriter.WriteLine("Price:" + abc);
+            Console.WriteLine("enter the date");
+            int n=Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("enter the month");
+            string month=Console.ReadLine();
+
+
+            Console.WriteLine("enter the year");
+            int year =Convert.ToInt32(Console.ReadLine());
+
+            streamWriter.WriteLine("Date:"+n+","+month+","+year);
+            streamWriter.Close();
+            fs.Close();
+
+        }
+    }
+}
+        
+        static void Main(string[] args)
+        {
+            user_details user_details = new user_details();
+          user_details.writefile();
+           Category category = new Category();
+            category.writefiles();
+           product product = new product();
+            product.details();
+           sales_details sales_Details = new sales_details();
+            sales_Details.sales();
+        }
+    }
+}
