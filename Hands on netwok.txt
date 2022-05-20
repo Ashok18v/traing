@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace Network
+{
+    internal class read
+    {public void details()
+        {
+            FileStream fs = new FileStream(@"C:\visual\network.txt", FileMode.Open,FileAccess.Read);
+            StreamReader streamReader = new StreamReader(fs);
+            
+            Console.WriteLine("Id" + "\t" + "Source"+"\t"+"\t"+"Destination" + "\t" + "Date"+"\t "+"\t"+"Time"+"\t"+"\t" +"Status" + "\t" +"\t"+ "Network");
+            while (streamReader.Peek() > 0)
+            {string line = streamReader.ReadLine(); 
+                if(line != "")
+                {
+                    { if (line.StartsWith("Id"))
+                            {
+                            string[] my = line.Split(':');
+                            Console.Write(my[1]);
+
+                        }
+                    if (line.StartsWith("Sou"))
+                        {
+                            string[] my = line.Split(':');
+                            Console.Write("\t"+my[1]);
+                        }
+                    if (line.StartsWith("Des"))
+                        {
+                            string[] my = line.Split(':');
+                            Console.Write("\t"+my[1]);
+                        }
+                        if (line.StartsWith("Date"))
+                        {
+                            string[] my = line.Split(' ');
+                            string[] my2 = my[0].Split(':');
+                            Console.Write("\t"+my2[1] + "\t" + my[1]+my[2]);
+                        }
+                        if (line.StartsWith("Stat"))
+                        {
+                            string[] my = line.Split(':');
+                            Console.Write("\t"+my[1]+"\t");
+                        }
+                        if (line.StartsWith("Net"))
+                        {
+                            string[] my = line.Split(':');
+                            Console.Write("\t" + my[1]);
+                            Console.WriteLine();                        }
+                       
+
+                    }
+                   
+                }
+            }streamReader.Close();
+            fs.Close();
+        }
+
+        static void Main(string[] args)
+        {read read= new read();
+            read.details();
+        }
+    }
+}
